@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+
+  <display-name>Welcome to FlyByU</display-name>
+  <description>
+     Welcome to FlyByU
+  </description>
+
+  
+  <servlet>
+        <servlet-name>FlyByUServlet</servlet-name>
+        <servlet-class>com.flybyu.web.FlyByUServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+        <servlet-name>FlyByUServlet</servlet-name>
+        <url-pattern>/FlyByUServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>test</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/dispatcher/*</url-pattern>
+  </servlet-mapping>
+  
+  <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+</web-app>
