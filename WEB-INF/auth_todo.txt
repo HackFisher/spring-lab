@@ -1,0 +1,46 @@
+{
+basic auth 和 auth_token比较
+http://baike.baidu.com/view/6402108.htm
+}
+
+{
+client 比如iOS，如何通过basic auth 进行验证
+http://www.lovelucy.info/auto-login-phpmyadmin-basic-auth.html
+}
+
+auth_token的做法，和OAuth很像，是否可以参考借鉴
+http://stackoverflow.com/questions/984644/spring-authentication-provider-vs-authentication-processing-filter?rq=1
+
+{
+如果basic auth 和 FORM_LOGIN_FILTER同时存在，如何区分， URL的会经过FORM login，也会经过basic auth吗？需要souce 验证一下
+
+<custom-filter position="FORM_LOGIN_FILTER" ref="authenticationTokenProcessingFilter"/>
+<custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter" />
+
+经过测试，两个Filter都会走，只是位置顺序position?不一样而已
+}
+
+Remember ME{
+http://static.springsource.org/spring-security/site/docs/3.1.x/reference/remember-me.html#remember-me-persistent-token
+}
+
+create unique index {
+http://zhidao.baidu.com/question/176256971.html&__bd_tkn__=72b21820362199604b0eaa6fb5ac6ba0931d9ee88078338d51fed8133ea5c69d362ad36bb4bcda3b39bb3949f6bbe47087ac3af56e60b1f4e7eb6015795bfb309861a0ff5f0f03de0125270dd430cc083c01e8737159c3feda3d3208712a302cce6602403fc6dfae9f06f5accbdc8d03cc3627ff4bac
+
+http://static.springsource.org/spring-security/site/docs/3.1.x/reference/appendix-schema.html
+}
+
+JDBCDaoImpl {
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+  <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+  <property name="url" value="jdbc:hsqldb:hsql://localhost:9001"/>
+  <property name="username" value="sa"/>
+  <property name="password" value=""/>
+</bean>
+
+<bean id="userDetailsService"
+      class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+  <property name="dataSource" ref="dataSource"/>
+</bean>
+http://static.springsource.org/spring-security/site/docs/3.1.x/reference/core-services.html#d0e2875
+}
