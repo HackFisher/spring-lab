@@ -3,3 +3,5 @@ curl http://10.64.4.136:8080/flybyu/dispatcher/viewAllActivities
 curl -u rod:koala http://10.64.49.136:8080/flybyu/dispatcher/viewAllActivities
 
 curl http://rod:koala@10.64.49.136:8080/flybyu/dispatcher/viewAllActivities
+
+curl http://denny:123456@10.64.49.136:8080/flybyu/dispatcher/follow/123

@@ -6,4 +6,4 @@ CREATE TABLE  ACTIVITIES
   timeto datetime DEFAULT NULL,
   type varchar(45) DEFAULT NULL,
   PRIMARY KEY (id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
